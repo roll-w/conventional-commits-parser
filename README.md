@@ -1,5 +1,28 @@
 # conventional-commits-parser
 
+A simple parser for [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
+
+## Usage
+
+```
+parser.py [-h] [--from FROM_REF] [--to TO_REF] [--output OUTPUT]
+          [--output-format OUTPUT_FORMAT] [--repo REPO]
+```
+
+- `-h`, `--help`: Show the help message and exit.
+- `--from FROM_REF`: The starting reference to parse the commits.
+- `--to TO_REF`: The ending reference to parse the commits.
+- `--output OUTPUT`: The output file to write the parsed commits.
+- `--output-format OUTPUT_FORMAT`: The output format of the parsed commits.
+  Currently, support `markdown`, `json`, `yaml`, and `csv`.
+- `--repo REPO`: The repository to parse the commits. It can be a local path or a remote URL.
+
+Example:
+
+```shell
+python parser.py --from v1.0.0 --to v1.1.0 --output CHANGELOG.md --output-format markdown --repo /path/to/repo
+```
+
 ## License
 
 ```text
