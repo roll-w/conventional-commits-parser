@@ -2,6 +2,16 @@
 
 A simple parser for [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/).
 
+## Requirements
+
+- Python 3.9+
+
+## Installation
+
+```shell
+pip install -r requirements.txt
+```
+
 ## Usage
 
 ```
