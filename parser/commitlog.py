@@ -38,7 +38,7 @@ class CommitInfo:
     break_change: bool
 
 
-def collect_commits(repo, ref1, ref2) -> list[CommitInfo]:
+def collect_commits(repo: git.Repo, ref1: str, ref2: str) -> list[CommitInfo]:
     commits = []
     for commit in repo.iter_commits(ref1 + '..' + ref2):
         commits.append(parse_commit(commit))
@@ -54,7 +54,7 @@ class CommitMessage:
     break_change: bool = False
 
 
-def parse_commit_message(commit: git.Commit):
+def parse_commit_message(commit: git.Commit) -> CommitMessage:
     msg = commit.message
     break_change = False
     if ':' not in msg:
@@ -78,7 +78,7 @@ def parse_commit_message(commit: git.Commit):
     return CommitMessage(typ, scope, title, message, break_change)
 
 
-def parse_commit(commit: git.Commit):
+def parse_commit(commit: git.Commit) -> CommitInfo:
     msg = parse_commit_message(commit)
     return CommitInfo(
         msg.typ, msg.scope, msg.title,

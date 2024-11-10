@@ -66,7 +66,7 @@ RAW_CONFIG = WriterConfig(
 
 
 class CommitFileWriter:
-    def __init__(self, file_path, config: WriterConfig = DEFAULT_CONFIG):
+    def __init__(self, file_path: str, config: WriterConfig = DEFAULT_CONFIG):
         self.file_path = file_path
         self.config = config
 
@@ -106,7 +106,7 @@ class FileWriterFactory:
 
 class MarkdownCommitFileWriter(CommitFileWriter):
 
-    def __init__(self, file_path, config: WriterConfig = DEFAULT_CONFIG):
+    def __init__(self, file_path: str, config: WriterConfig = DEFAULT_CONFIG):
         super(MarkdownCommitFileWriter, self).__init__(file_path, config)
 
     def prepare_data(self, commits: list[CommitInfo]) -> str:
@@ -152,7 +152,7 @@ class JsonCommitFileWriter(CommitFileWriter):
     ```
     """
 
-    def __init__(self, file_path, config: WriterConfig = DEFAULT_CONFIG):
+    def __init__(self, file_path: str, config: WriterConfig = DEFAULT_CONFIG):
         super(JsonCommitFileWriter, self).__init__(file_path, config)
 
     def prepare_data(self, commits: list[CommitInfo]) -> str:
@@ -195,7 +195,7 @@ class YamlCommitFileWriter(CommitFileWriter):
     ```
     """
 
-    def __init__(self, file_path, config: WriterConfig = DEFAULT_CONFIG):
+    def __init__(self, file_path: str, config: WriterConfig = DEFAULT_CONFIG):
         super(YamlCommitFileWriter, self).__init__(file_path, config)
 
     def prepare_data(self, commits: list[CommitInfo]) -> str:
@@ -231,7 +231,7 @@ class CsvCommitFileWriter(CommitFileWriter):
     ```
     """
 
-    def __init__(self, file_path, config: WriterConfig = DEFAULT_CONFIG):
+    def __init__(self, file_path: str, config: WriterConfig = DEFAULT_CONFIG):
         super(CsvCommitFileWriter, self).__init__(file_path, config)
 
     def prepare_data(self, commits: list[CommitInfo]) -> str:
@@ -267,7 +267,7 @@ class CsvCommitFileWriter(CommitFileWriter):
 
 class RawCommitFileWriter(CommitFileWriter):
 
-    def __init__(self, file_path, config: WriterConfig = DEFAULT_CONFIG):
+    def __init__(self, file_path: str, config: WriterConfig = DEFAULT_CONFIG):
         super(RawCommitFileWriter, self).__init__(file_path, config)
 
     def write(self, commits: list[CommitInfo]):

@@ -29,7 +29,7 @@ from parser.commitlog import collect_commits, CommitInfo
 from parser.file_writer import FileWriterFactory, FileFormat, RAW_CONFIG
 
 
-def pull_repo(repo_url):
+def pull_repo(repo_url: str) -> git.Repo:
     if os.path.exists(repo_url):
         print('Repo exists, skip cloning')
         path = repo_url
@@ -42,8 +42,8 @@ def pull_repo(repo_url):
     return git.Repo.init(path)
 
 
-def get_ref_to_root(repo):
-    first_commit = next(repo.iter_commits(rev='HEAD', max_parents=0))
+def get_ref_to_root(rep: git.Repo) -> str:
+    first_commit = next(rep.iter_commits(rev='HEAD', max_parents=0))
     return first_commit.hexsha
 
 
